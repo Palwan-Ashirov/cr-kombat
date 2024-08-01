@@ -56,6 +56,7 @@ const app = {
         content: '#ffffff',
       },
     ],
+    script: [{ type: 'text/javascript', src: 'https://telegram.org/js/telegram-web-app.js' }],
   },
 }
 
