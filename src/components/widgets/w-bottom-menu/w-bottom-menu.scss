@@ -1,0 +1,45 @@
+.w-bottom-menu {
+  position: fixed;
+  padding: 0 16px 20px 16px;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+  z-index: 2;
+  max-width: 375px;
+  transform: translate(-50%, 0);
+  &__nav {
+    padding: 6px;
+    border: 1px solid var(--stroke);
+    background-color: var(--bg2);
+    border-radius: 16px;
+    display: flex;
+    gap: 4px;
+  }
+  &__nav-item {
+    flex: 1 1;
+    width: 0;
+    height: 62px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    &.active {
+      background-color: var(--bg);
+      .w-bottom-menu__nav-item--icon {
+        color: var(--text);
+      }
+    }
+    &--icon {
+      color: #585858;
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    &--name {
+      color: var(--text);
+      margin-top: 4px;
+    }
+  }
+}

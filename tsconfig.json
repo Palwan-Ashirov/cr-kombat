@@ -1,0 +1,59 @@
+{
+  // https://v3.nuxtjs.org/concepts/typescript
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "types": [
+      "@pinia/nuxt",
+      "node"
+    ],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "verbatimModuleSyntax": false,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+
+      "@app/*": ["./src/app/*"],
+      "@app": ["./src/app/index"],
+
+      "@adapters/*": ["./src/app/adapters/*"],
+      "@adapters": ["./src/app/adapters/index"],
+
+      "@api/*": ["./src/app/api/*"],
+      "@api": ["./src/app/api/index"],
+
+      "@app-types/*": ["./src/app/types/*"],
+      "@app-types": ["./src/app/types/index"],
+
+      "@composables/*": ["./src/app/composables/*"],
+      "@composables": ["./src/app/composables/index"],
+
+      "@helpers/*": ["./src/app/helpers/*"],
+      "@helpers": ["./src/app/helpers/index"],
+
+      "@stores/*": ["./src/app/stores/*"],
+      "@stores": ["./src/app/stores/index"],
+
+      "@styles/*": ["./src/app/styles/*"],
+
+      "@services/*": ["./src/app/api/services/*"],
+      "@services": ["./src/app/api/services/index"],
+
+      "@controllers/*": ["./src/app/api/controllers/*"],
+      "@controllers": ["./src/app/api/controllers/index"],
+
+      "@dto/*": ["./src/app/api/dto/*"],
+      "@dto": ["./src/app/api/dto/index"],
+
+      "@assets/*": ["./src/assets/*"],
+
+      "@layouts/*": ["./src/layouts/*"],
+
+      "@components/*": ["./src/components/*"],
+
+      "@pages/*": ["./src/pages/*"],
+    },
+  },
+}

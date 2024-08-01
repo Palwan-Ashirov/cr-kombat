@@ -1,0 +1,27 @@
+{
+  "name": "bst",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
+    "dayjs": "^1.11.11",
+    "nuxt": "^3.12.3",
+    "nuxt-svgo": "^4.0.2",
+    "vue": "latest"
+  },
+  "overrides": {
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "sass": "^1.77.7",
+    "typescript": "^5.5.3",
+    "vue-tsc": "^1"
+  }
+}

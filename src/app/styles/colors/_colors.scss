@@ -1,0 +1,15 @@
+:root {
+  --bg: #0a0a0a;
+  --bg2: #1d1d1f;
+  --disable: #545454;
+  --text: #ffffff;
+  --text2: #b4b4b4;
+  --primary: #811fff;
+  --accent: #f7bd07;
+  --stroke: rgba(180, 180, 180, 0.4);
+  --border-open-space: #9747ff;
+  --gradient: linear-gradient(45deg, #7000ff, #f5b100);
+}
+
+body[data-theme='dark'] {
+}

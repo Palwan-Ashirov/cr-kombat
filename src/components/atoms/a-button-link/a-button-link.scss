@@ -1,0 +1,21 @@
+.about-link {
+  margin-top: 16px;
+  color: var(--text);
+  padding: 19px 15px;
+  border: 1px solid var(--stroke);
+  display: flex;
+  align-items: center;
+  background-color: var(--bg2);
+  border-radius: 16px;
+  &__title {
+    flex: 1 1;
+    width: 0;
+  }
+  &__icon {
+    color: var(--text2);
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

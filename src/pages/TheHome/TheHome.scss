@@ -1,0 +1,135 @@
+.main {
+  padding: 32px 24px;
+  position: relative;
+
+  // .main__wait-list
+  &__wait-list {
+    margin-top: 32px;
+  }
+  // .main__about-link
+  &__about-link {
+    margin-top: 32px;
+  }
+}
+
+.preview {
+  // .preview__background
+  &__background {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    overflow-x: hidden;
+    height: 1000px;
+    z-index: -1;
+  }
+  // .preview__background-blur-white
+  &__background-blur-white {
+    width: 187px;
+    height: 132px;
+    border-radius: 70px;
+    background: #fff4d1;
+    left: 50%;
+    top: 92px;
+    position: absolute;
+    transform: translateX(-50%);
+    filter: blur(50px);
+    opacity: 0.68;
+    z-index: 0;
+  }
+  // .preview__background-blur-mini
+  &__background-blur-mini {
+    width: 459px;
+    height: 262px;
+    background: var(--gradient);
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    filter: blur(124px);
+    opacity: 0.2;
+    z-index: 2;
+  }
+  // .preview__background-blur-big
+  &__background-blur-big {
+    width: 717px;
+    height: 361px;
+    background: var(--gradient);
+    left: 50%;
+    top: 136px;
+    position: absolute;
+    transform: translateX(-50%);
+    filter: blur(90px);
+    opacity: 0.56;
+    z-index: 1;
+  }
+  // .preview__info
+  &__info {
+    margin-top: 20px;
+  }
+}
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // .preview-header__title
+  &__title {
+    font-weight: 600;
+    font-size: 23.61px;
+  }
+  // .preview-header__coins
+  &__coins {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+.preview-info {
+  // .preview-info__wrapper
+  &__wrapper {
+    width: 100%;
+    background-color: var(--primary);
+    border-radius: 24px;
+    padding: 11px 8px;
+    position: relative;
+  }
+  // .preview-info__users
+  &__users {
+    width: 100%;
+    padding-top: 17px;
+    padding-left: 16px;
+  }
+  // .preview-info__users-title
+  &__users-title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  // .preview-info__users-position
+  &__users-position {
+    font-size: 54px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  // .preview-info__users-count
+  &__users-count {
+    font-size: 16px;
+    line-height: 1.2;
+    margin-top: 4px;
+  }
+  // .preview-info__image
+  &__image {
+    position: absolute;
+    right: -19px;
+    top: -4px;
+    width: 182px;
+    height: 245px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}

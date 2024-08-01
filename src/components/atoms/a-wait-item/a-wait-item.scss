@@ -1,0 +1,69 @@
+.wait-list {
+  // .wait-list__title
+  &__name {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  // .wait-list__item
+  &__item {
+    margin-top: 16px;
+    color: var(--text);
+    padding: 11px;
+    border: 1px solid var(--stroke);
+    display: flex;
+    align-items: center;
+    background-color: rgba(29, 29, 31, 0.5);
+    border-radius: 16px;
+  }
+  // .wait-list__icon
+  &__icon {
+    img,
+    svg {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  // .wait-list__info
+  &__info {
+    flex: 1 1;
+    width: 0;
+    padding-left: 12px;
+  }
+  // .wait-list__title
+  &__title {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+  // .wait-list__earn
+  &__earn {
+    margin-top: 4px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+    span {
+      color: var(--text2);
+    }
+    p {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+  // .wait-list__earn-icon
+  &__earn-icon {
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  // .wait-list__append-icon
+  &__append-icon {
+    color: var(--text2);
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

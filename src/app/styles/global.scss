@@ -1,0 +1,16 @@
+@import './fonts';
+@import './colors';
+@import './normalize';
+@import './variables';
+@import './media';
+@import './tools';
+
+body {
+  background-color: var(--bg);
+  max-width: 375px;
+  margin: 0 auto;
+  min-height: 100vh;
+  color: var(--text);
+  padding-bottom: 96px;
+  font-family: Inter;
+}
