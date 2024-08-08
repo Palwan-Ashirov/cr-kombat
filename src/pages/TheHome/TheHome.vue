@@ -20,13 +20,11 @@ import WProfilePreview from '@/components/widgets/w-profile-preview/w-profile-pr
 import EDailyReward from '@/components/entities/e-daily-reward/e-daily-reward.vue'
 import AWaitItem from '@/components/atoms/a-wait-item/a-wait-item.vue'
 import AButtonLink from '@/components/atoms/a-button-link/a-button-link.vue'
-import { UserService } from '@services'
+import { useUserStore } from '@stores/user'
 
-const service = new UserService()
+const userStore = useUserStore()
 
-const { data, status } = service.getProfileDetails()
-console.log('-->', data.value)
-console.log('-->', status.value)
+Promise.all([userStore.FETCH_USER_DETAILS(), userStore.FETCH_USER_POSITION(), userStore.FETCH_USER_BALANCE()])
 </script>
 
 <style src="./TheHome.scss" lang="scss" />

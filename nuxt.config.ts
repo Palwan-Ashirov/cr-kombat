@@ -75,8 +75,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      API: process.env.NUXT_PUBLIC_API,
-      USER_ID: process.env.NUXT_PUBLIC_USER_ID,
+      BASE_URL: process.env.NUXT_PUBLIC_BASE_URL,
     },
   },
 
@@ -108,6 +107,16 @@ export default defineNuxtConfig({
   //     },
   //   },
   // },
+  vite: {
+    server: {
+      proxy: {
+        '/v1/users/me': {
+          target: 'https://test-waitlist.checkrewards.com',
+          changeOrigin: true,
+        },
+      },
+    },
+  },
 
   typescript: {
     tsConfig: {
@@ -116,7 +125,6 @@ export default defineNuxtConfig({
       },
     },
   },
-
   devtools: { enabled: true },
 
   compatibilityDate: '2024-07-09',
