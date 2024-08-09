@@ -1,6 +1,7 @@
 <template>
   <div>Queue Page</div>
   <p v-text="telegramToken"></p>
+  userDetail
   <p v-text="userStore.userDetails"></p>
 </template>
 
