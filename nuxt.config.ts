@@ -76,6 +76,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       BASE_URL: process.env.NUXT_PUBLIC_BASE_URL,
+      VERCEL_TOKEN: process.env.NUXT_PUBLIC_VERCEL_TOKEN,
     },
   },
 
@@ -107,16 +108,6 @@ export default defineNuxtConfig({
   //     },
   //   },
   // },
-  vite: {
-    server: {
-      proxy: {
-        '/v1/users/me': {
-          target: 'https://test-waitlist.checkrewards.com',
-          changeOrigin: true,
-        },
-      },
-    },
-  },
 
   typescript: {
     tsConfig: {

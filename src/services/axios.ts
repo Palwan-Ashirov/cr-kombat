@@ -9,6 +9,7 @@ export const api = () => {
     baseURL: $config.public.BASE_URL,
     headers: {
       'TG-Auth': TELEGRAM_TOKEN,
+      Cookies: $config.public.VERCEL_TOKEN,
     },
   })
   axiosInstance.interceptors.response.use(
