@@ -17,7 +17,7 @@
       @click="$emit('getDailyRewards')"
     >
       <p v-if="dailyRewardsAvailable">Get Daily reward</p>
-      <p v-else>Before opening {{ localedLockedUntilTime }}</p>
+      <p v-else>Before opening {{ untilTime.localedLockedUntilTime }}</p>
     </button>
   </div>
 </template>
@@ -38,12 +38,15 @@ const props = withDefaults(defineProps<Props>(), { dailyRewardsAvailable: true }
 
 defineEmits(['getDailyRewards'])
 
-const { localedLockedUntilTime, clear } = useGetDifferenceByUntilLockedTime(props.lockedUntilTime)
+const untilTime = computed(() => {
+  const { localedLockedUntilTime, clear } = useGetDifferenceByUntilLockedTime(props.lockedUntilTime)
+  return { localedLockedUntilTime, clear }
+})
 
 const localedEarnValue = computed(() => useNumberWithSpaces(props.earnValue))
 
 onUnmounted(() => {
-  clear()
+  untilTime.value.clear()
 })
 </script>
 

@@ -22,8 +22,8 @@ export const useDailyRewardsStore = defineStore('dailyRewards', () => {
     clearInterval(timer.value)
   }
   function startTimer() {
-    timer.value = setInterval(() => {
-      FETCH_DAILY_REWARDS_RATING()
+    timer.value = setInterval(async () => {
+      await FETCH_DAILY_REWARDS_RATING()
     }, 5000)
   }
   async function GET_DAILY_REWARDS() {

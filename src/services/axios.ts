@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const TELEGRAM_TOKEN =
-  'query_id=AAEOiBtAAAAAAA6IG0CQVmDH&user=%7B%22id%22%3A1075546126%2C%22first_name%22%3A%22Palwan%22%2C%22last_name%22%3A%22P.%22%2C%22username%22%3A%22palwanP%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1723313305&hash=d0101cea729781fffd244c1d734bb281211c500eec824e8efe9972c34f58129c'
+  'query_id=AAEOiBtAAAAAAA6IG0DSwfk4&user=%7B%22id%22%3A1075546126%2C%22first_name%22%3A%22Palwan%22%2C%22last_name%22%3A%22P.%22%2C%22username%22%3A%22palwanP%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1723404573&hash=1ac07a11207ced680751f038854d5c5ad016f0977d045a782ff782d4f8af70f4'
 
 export const api = () => {
   const { $config } = useNuxtApp()
