@@ -61,7 +61,7 @@ const app = {
 }
 
 export default defineNuxtConfig({
-  ssr: true,
+  ssr: false,
 
   app: app,
 

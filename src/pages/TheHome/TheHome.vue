@@ -34,19 +34,16 @@ const userStore = useUserStore()
 const tasksStore = useTasksStore()
 const dailyRewardsStore = useDailyRewardsStore()
 
-useAsyncData(() =>
-  Promise.all([
-    userStore.FETCH_USER_DETAILS(),
-    userStore.FETCH_USER_POSITION(),
-    userStore.FETCH_USER_BALANCE(),
-    tasksStore.FETCH_TASKS(),
-    dailyRewardsStore.FETCH_DAILY_REWARDS_RATING(),
-  ]),
-)
-
-onMounted(() => {
-  dailyRewardsStore.startTimer()
-})
+await Promise.all([
+  userStore.FETCH_USER_DETAILS(),
+  userStore.FETCH_USER_POSITION(),
+  userStore.FETCH_USER_BALANCE(),
+  tasksStore.FETCH_TASKS(),
+  dailyRewardsStore.FETCH_DAILY_REWARDS_RATING(),
+]),
+  onMounted(() => {
+    dailyRewardsStore.startTimer()
+  })
 onUnmounted(() => {
   dailyRewardsStore.stopTimer()
 })

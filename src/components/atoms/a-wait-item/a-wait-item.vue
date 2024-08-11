@@ -9,7 +9,7 @@
         <div class="wait-list__earn-icon">
           <IconCoin filled />
         </div>
-        <p>{{ task.reward?.value }}</p>
+        <p>{{ localedTaskRewardValue }}</p>
       </div>
     </div>
     <div class="wait-list__append-icon">
@@ -23,12 +23,15 @@
 import IconCoin from '@/app/assets/icons/contents/icon-coin.svg'
 import IconArrow from '@/app/assets/icons/actions/icon-arrow.svg'
 import IconChecked from '@/app/assets/icons/actions/icon-checked.svg'
+import { useNumberWithSpaces } from '@composables/useDigit'
 
 interface Props {
   task: any
 }
 
-withDefaults(defineProps<Props>(), {})
+const props = withDefaults(defineProps<Props>(), {})
+
+const localedTaskRewardValue = computed(() => useNumberWithSpaces(props.task.reward?.value))
 </script>
 
 <style src="./a-wait-item.scss" lang="scss"></style>
