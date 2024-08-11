@@ -1,20 +1,23 @@
-import dayjs from "dayjs";
+import { useDayjs } from '#dayjs'
 
-const provider = dayjs;
+export function useGetDifferenceByUntilLockedTime() {
+  const dayjs = useDayjs()
+  const localedLockedUntilTime = ref('')
 
-interface FormatDate {
-  date?: string | number | Date;
-  template?: string;
-}
+  const targetDate = dayjs('2024-08-12T00:00:00+04:00')
 
-class UseDate {
-  static date(date?: string | number | Date) {
-    return provider(date);
+  const updateDifference = () => {
+    const now = dayjs()
+    const diff = targetDate.diff(now)
+    localedLockedUntilTime.value = dayjs.utc(diff).format('HH:mm:ss')
   }
 
-  static format(options?: FormatDate): string {
-    return provider(options?.date).format(options?.template);
-  }
-}
+  updateDifference()
+  const interval = setInterval(updateDifference, 1000)
 
-export { UseDate };
+  onUnmounted(() => {
+    clearInterval(interval)
+  })
+
+  return localedLockedUntilTime.value
+}

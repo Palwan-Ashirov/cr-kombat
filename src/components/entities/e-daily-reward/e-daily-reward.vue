@@ -7,7 +7,7 @@
       <p>You earn</p>
       <div class="w-daily-reward-info__user-earn-count">
         <IconCoin filled />
-        <p>{{ earnValue }}</p>
+        <p>{{ localedEarnValue }}</p>
       </div>
     </div>
     <div class="w-daily-reward-info__title">for 1 people after you</div>
@@ -25,7 +25,8 @@
 <script setup lang="ts">
 import IconInfo from '@/app/assets/icons/actions/icon-info.svg'
 import IconCoin from '@/app/assets/icons/contents/icon-coin.svg'
-import { useDayjs } from '#dayjs'
+import { useGetDifferenceByUntilLockedTime } from '@composables/useDate.js'
+import { useNumberWithSpaces } from '@composables/useDigit.js'
 
 interface Props {
   earnValue: number
@@ -33,34 +34,15 @@ interface Props {
   lockedUntilTime: string
 }
 
-withDefaults(defineProps<Props>(), { dailyRewardsAvailable: true })
+const props = withDefaults(defineProps<Props>(), { dailyRewardsAvailable: true })
 
 defineEmits(['getDailyRewards'])
-
 const localedLockedUntilTime = ref('')
 
-function getDifferenceByUntilTime() {
-  const dayjs = useDayjs()
-
-  const targetDate = dayjs('2024-08-12T00:00:00+04:00')
-
-  const updateDifference = () => {
-    const now = dayjs()
-    const diff = targetDate.diff(now)
-    localedLockedUntilTime.value = dayjs.utc(diff).format('HH:mm:ss')
-  }
-
-  updateDifference()
-  const interval = setInterval(updateDifference, 1000)
-
-  onUnmounted(() => {
-    clearInterval(interval)
-  })
-}
-
 onMounted(() => {
-  getDifferenceByUntilTime()
+  localedLockedUntilTime.value = useGetDifferenceByUntilLockedTime()
 })
+const localedEarnValue = computed(() => useNumberWithSpaces(props.earnValue))
 </script>
 
 <style src="./e-daily-reward.scss" lang="scss" scoped />

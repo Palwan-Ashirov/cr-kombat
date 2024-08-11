@@ -6,7 +6,7 @@
           <div class="preview-header__title">Hi, {{ userName }}</div>
           <div class="preview-header__coins">
             <IconCoin filled />
-            <p v-text="balance"></p>
+            <p v-text="localedBalance"></p>
           </div>
         </div>
       </div>
@@ -20,8 +20,8 @@
           <div class="preview-info__wrapper">
             <div class="preview-info__users">
               <div class="preview-info__users-title">Your position</div>
-              <div class="preview-info__users-position">{{ userPosition }}</div>
-              <div class="preview-info__users-count">of {{ usersCount }} users</div>
+              <div class="preview-info__users-position">{{ localedUserPosition }}</div>
+              <div class="preview-info__users-count">of {{ localedUsersCount }} users</div>
             </div>
             <div class="preview-info__image">
               <img src="@/app/assets/images/fox.png" alt="fox" />
@@ -36,6 +36,8 @@
 
 <script setup lang="ts">
 import IconCoin from '@/app/assets/icons/contents/icon-coin.svg'
+import { useNumberWithSpaces } from '@composables/useDigit.js'
+
 interface Props {
   userName: string
   balance: number
@@ -43,7 +45,11 @@ interface Props {
   usersCount: number
 }
 
-withDefaults(defineProps<Props>(), { userName: '' })
+const props = withDefaults(defineProps<Props>(), { userName: '' })
+
+const localedBalance = computed(() => useNumberWithSpaces(props.balance))
+const localedUserPosition = computed(() => useNumberWithSpaces(props.userPosition))
+const localedUsersCount = computed(() => useNumberWithSpaces(props.usersCount))
 </script>
 
 <style src="./w-profile-preview.scss" lang="scss" scoped></style>
