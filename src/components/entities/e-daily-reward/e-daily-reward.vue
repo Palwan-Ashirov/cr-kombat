@@ -13,10 +13,11 @@
     <div class="w-daily-reward-info__title">for those 12 players after you</div>
     <button
       class="w-daily-reward-info__daily-revard"
-      :disabled="!dailyRewardsAvailable"
+      :disabled="!dailyRewardsAvailable || loader"
       @click="$emit('getDailyRewards')"
     >
-      <p v-if="dailyRewardsAvailable">Get Daily reward</p>
+      <p v-if="loader" class="loader"><IconLoader filled /></p>
+      <p v-else-if="dailyRewardsAvailable">Get Daily reward</p>
       <p v-else>Before opening {{ untilTime.localedLockedUntilTime }}</p>
     </button>
   </div>
@@ -25,6 +26,8 @@
 <script setup lang="ts">
 import IconInfo from '@/app/assets/icons/actions/icon-info.svg'
 import IconCoin from '@/app/assets/icons/contents/icon-coin.svg'
+import IconLoader from '@/app/assets/icons/actions/icon-loader.svg'
+
 import { useGetDifferenceByUntilLockedTime } from '@composables/useDate.js'
 import { useNumberWithSpaces } from '@composables/useDigit.js'
 
@@ -32,9 +35,10 @@ interface Props {
   earnValue: number
   dailyRewardsAvailable: boolean
   lockedUntilTime: string | null
+  loader?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), { dailyRewardsAvailable: true })
+const props = withDefaults(defineProps<Props>(), { dailyRewardsAvailable: true, loader: false })
 
 defineEmits(['getDailyRewards'])
 

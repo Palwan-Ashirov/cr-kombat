@@ -10,7 +10,8 @@
         :earn-value="dailyRewardsStore.dailyRewardsRating?.amount?.value"
         :daily-rewards-available="dailyRewardsStore.dailyRewardsRating?.available"
         :locked-until-time="dailyRewardsStore.dailyRewardsRating?.lockedUntil"
-        @getDailyRewards="dailyRewardsStore.GET_DAILY_REWARDS"
+        :loader="isLoading"
+        @getDailyRewards="getDailyRewards"
       />
     </w-profile-preview>
     <w-waitlist :tasks="tasksStore.tasks" />
@@ -31,6 +32,19 @@ import { useDailyRewardsStore } from '@stores/dailyRewards'
 const userStore = useUserStore()
 const tasksStore = useTasksStore()
 const dailyRewardsStore = useDailyRewardsStore()
+
+const isLoading = ref(false)
+
+async function getDailyRewards() {
+  try {
+    isLoading.value = true
+    await dailyRewardsStore.GET_DAILY_REWARDS()
+  } catch (error) {
+    console.error(error)
+  } finally {
+    isLoading.value = false
+  }
+}
 
 await Promise.all([
   userStore.FETCH_USER_DETAILS(),
