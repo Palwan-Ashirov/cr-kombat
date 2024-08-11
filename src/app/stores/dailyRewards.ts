@@ -8,8 +8,10 @@ export const useDailyRewardsStore = defineStore('dailyRewards', () => {
 
   async function FETCH_DAILY_REWARDS_RATING() {
     try {
+      stopTimer()
       const res = await fetchDailyRewardsRating()
       dailyRewardsRating.value = res
+      startTimer()
     } catch (error) {
       console.error(error)
     }
@@ -27,8 +29,7 @@ export const useDailyRewardsStore = defineStore('dailyRewards', () => {
   async function GET_DAILY_REWARDS() {
     try {
       await getDailyRewardsRating()
-      stopTimer()
-      startTimer()
+      await FETCH_DAILY_REWARDS_RATING()
       await userStore.FETCH_USER_BALANCE()
     } catch (error) {
       console.error(error)

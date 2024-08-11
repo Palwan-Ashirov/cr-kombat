@@ -39,12 +39,9 @@ await Promise.all([
   tasksStore.FETCH_TASKS(),
   dailyRewardsStore.FETCH_DAILY_REWARDS_RATING(),
 ]),
-  onMounted(() => {
-    dailyRewardsStore.startTimer()
+  onUnmounted(() => {
+    dailyRewardsStore.stopTimer()
   })
-onUnmounted(() => {
-  dailyRewardsStore.stopTimer()
-})
 </script>
 
 <style src="./TheHome.scss" lang="scss" />

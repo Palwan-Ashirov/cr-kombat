@@ -38,9 +38,13 @@ const props = withDefaults(defineProps<Props>(), { dailyRewardsAvailable: true }
 
 defineEmits(['getDailyRewards'])
 
-const localedLockedUntilTime = useGetDifferenceByUntilLockedTime(props.lockedUntilTime)
+const { localedLockedUntilTime, clear } = useGetDifferenceByUntilLockedTime(props.lockedUntilTime)
 
 const localedEarnValue = computed(() => useNumberWithSpaces(props.earnValue))
+
+onUnmounted(() => {
+  clear()
+})
 </script>
 
 <style src="./e-daily-reward.scss" lang="scss" scoped />

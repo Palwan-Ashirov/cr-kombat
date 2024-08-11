@@ -14,10 +14,9 @@ export function useGetDifferenceByUntilLockedTime(lockedUntilTime: string | null
 
   updateDifference()
   const interval = setInterval(updateDifference, 1000)
-
-  onUnmounted(() => {
+  function clear() {
     clearInterval(interval)
-  })
+  }
 
-  return localedLockedUntilTime || ''
+  return { localedLockedUntilTime: localedLockedUntilTime || '', clear }
 }

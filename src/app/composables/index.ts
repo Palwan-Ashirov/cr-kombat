@@ -1,4 +1,4 @@
-import { UseDate } from "./useDate";
-import { UseDigit } from "./useDigit";
+import { useGetDifferenceByUntilLockedTime } from './useDate'
+import { useNumberWithSpaces } from './useDigit'
 
-export { UseDate, UseDigit };
+export { useGetDifferenceByUntilLockedTime, useNumberWithSpaces }
