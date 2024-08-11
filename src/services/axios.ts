@@ -8,7 +8,7 @@ export const api = () => {
   const axiosInstance = axios.create({
     baseURL: $config.public.BASE_URL,
     headers: {
-      'TG-Auth': TELEGRAM_TOKEN,
+      'TG-Auth': Telegram?.WebView.initParams.tgWebAppData || TELEGRAM_TOKEN,
       Cookies: $config.public.VERCEL_TOKEN,
     },
   })
