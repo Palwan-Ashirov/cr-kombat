@@ -5,9 +5,9 @@
         <div class="w-bottom-menu__nav-item--icon"><IconHome /></div>
         <div class="w-bottom-menu__nav-item--name">Home</div>
       </nuxt-link>
-      <nuxt-link :to="{ name: 'queue' }" class="w-bottom-menu__nav-item">
+      <nuxt-link :to="{ name: 'waitlist' }" class="w-bottom-menu__nav-item">
         <div class="w-bottom-menu__nav-item--icon"><IconQueue /></div>
-        <div class="w-bottom-menu__nav-item--name">Queue</div>
+        <div class="w-bottom-menu__nav-item--name">Waitlist</div>
       </nuxt-link>
       <nuxt-link :to="{ name: 'friends' }" class="w-bottom-menu__nav-item">
         <div class="w-bottom-menu__nav-item--icon"><IconFriends /></div>
