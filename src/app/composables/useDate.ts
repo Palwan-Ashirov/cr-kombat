@@ -1,6 +1,6 @@
 import { useDayjs } from '#dayjs'
 
-export function useGetDifferenceByUntilLockedTime(lockedUntilTime: string) {
+export function useGetDifferenceByUntilLockedTime(lockedUntilTime: string | null) {
   const dayjs = useDayjs()
   const localedLockedUntilTime = ref('')
 
@@ -19,5 +19,5 @@ export function useGetDifferenceByUntilLockedTime(lockedUntilTime: string) {
     clearInterval(interval)
   })
 
-  return localedLockedUntilTime
+  return localedLockedUntilTime || ''
 }

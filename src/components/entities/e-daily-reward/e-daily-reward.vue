@@ -31,7 +31,7 @@ import { useNumberWithSpaces } from '@composables/useDigit.js'
 interface Props {
   earnValue: number
   dailyRewardsAvailable: boolean
-  lockedUntilTime: string
+  lockedUntilTime: string | null
 }
 
 const props = withDefaults(defineProps<Props>(), { dailyRewardsAvailable: true })

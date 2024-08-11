@@ -1,5 +1,5 @@
 export function useNumberWithSpaces(event: string | number): string {
-  if (!event || (typeof event != 'number' && typeof event != 'string')) {
+  if (typeof event != 'number' && typeof event != 'string') {
     return ''
   }
   const price = event.toString().replaceAll(' ', '')

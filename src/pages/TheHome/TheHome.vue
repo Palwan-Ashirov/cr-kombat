@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <w-profile-preview
-      :user-name="userStore.userDetails?.userName"
+      :user-name="userStore.userDetails?.userName || userStore.userDetails?.firstName"
       :balance="userStore.userBalance?.value"
       :user-position="userStore.userPosition?.position"
       :users-count="userStore.userPosition?.total"
