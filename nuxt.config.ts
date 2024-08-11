@@ -7,8 +7,8 @@ const extendedRoutes = [
     file: '~/src/pages/TheHome/TheHome.vue',
   },
   {
-    name: 'queue',
-    path: '/queue',
+    name: 'waitlist',
+    path: '/waitlist',
     file: '~/src/pages/TheQueue/TheQueue.vue',
   },
   {
@@ -91,7 +91,7 @@ export default defineNuxtConfig({
   },
 
   dir: {
-    pages: 'src/pages',
+    // pages: 'src/pages',
     layouts: './src/layouts',
     plugins: './src/app/plugins',
     middleware: './src/app/middleware',

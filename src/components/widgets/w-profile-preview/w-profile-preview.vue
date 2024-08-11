@@ -11,22 +11,20 @@
         </div>
       </div>
       <div class="preview__background">
-        <div class="preview__background-blur-white"></div>
-        <div class="preview__background-blur-mini"></div>
         <div class="preview__background-blur-big"></div>
       </div>
       <div class="preview__info">
         <article class="preview-info">
           <div class="preview-info__wrapper">
             <div class="preview-info__users">
-              <div class="preview-info__users-title">Your position</div>
+              <div class="preview-info__users-title">You're ranked</div>
               <div class="preview-info__users-position" :style="`font-size: ${userPositionFontSize}px`">
                 {{ localedUserPosition }}
               </div>
-              <div class="preview-info__users-count">of {{ localedUsersCount }} users</div>
+              <div class="preview-info__users-count">out of {{ localedUsersCount }} players</div>
             </div>
             <div class="preview-info__image">
-              <img src="@/app/assets/images/fox.png" alt="fox" />
+              <img src="@/app/assets/images/fox-2.png" alt="fox" />
             </div>
             <slot />
           </div>

@@ -19,8 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { useAsyncData } from '#app'
-
 import WProfilePreview from '@/components/widgets/w-profile-preview/w-profile-preview.vue'
 import EDailyReward from '@/components/entities/e-daily-reward/e-daily-reward.vue'
 import WWaitlist from '@/components/widgets/w-waitlist/w-waitlist.vue'

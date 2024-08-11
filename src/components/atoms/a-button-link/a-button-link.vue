@@ -1,7 +1,7 @@
 <template>
   <div class="main__about-link">
     <a href="#" class="about-link">
-      <div class="about-link__title">About the project</div>
+      <div class="about-link__title">About</div>
       <div class="about-link__icon">
         <IconArrow filled />
       </div>

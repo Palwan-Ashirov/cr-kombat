@@ -23,9 +23,9 @@ export const useDailyRewardsStore = defineStore('dailyRewards', () => {
   }
   async function GET_DAILY_REWARDS() {
     try {
-      const res = await getDailyRewardsRating()
+      await getDailyRewardsRating()
       stopTimer()
-      await FETCH_DAILY_REWARDS_RATING()
+      startTimer()
     } catch (error) {
       console.error(error)
     }

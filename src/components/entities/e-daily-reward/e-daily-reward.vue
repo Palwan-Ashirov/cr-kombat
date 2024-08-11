@@ -4,13 +4,13 @@
       <IconInfo filled />
     </div>
     <div class="w-daily-reward-info__user-earn">
-      <p>You earn</p>
+      <p>Get</p>
       <div class="w-daily-reward-info__user-earn-count">
         <IconCoin filled />
         <p>{{ localedEarnValue }}</p>
       </div>
     </div>
-    <div class="w-daily-reward-info__title">for 1 people after you</div>
+    <div class="w-daily-reward-info__title">for those 12 players after you</div>
     <button
       class="w-daily-reward-info__daily-revard"
       :disabled="!dailyRewardsAvailable"
@@ -37,11 +37,9 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), { dailyRewardsAvailable: true })
 
 defineEmits(['getDailyRewards'])
-const localedLockedUntilTime = ref('')
 
-onMounted(() => {
-  localedLockedUntilTime.value = useGetDifferenceByUntilLockedTime()
-})
+const localedLockedUntilTime = useGetDifferenceByUntilLockedTime(props.lockedUntilTime)
+
 const localedEarnValue = computed(() => useNumberWithSpaces(props.earnValue))
 </script>
 
