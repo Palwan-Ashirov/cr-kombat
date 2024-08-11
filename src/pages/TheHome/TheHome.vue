@@ -7,8 +7,9 @@
       :users-count="userStore.userPosition?.total"
     >
       <e-daily-reward
-        :earnValue="dailyRewardsStore.dailyRewardsRating?.amount?.value"
-        :dailyRewardsAvailable="dailyRewardsStore.dailyRewardsRating?.available"
+        :earn-value="dailyRewardsStore.dailyRewardsRating?.amount?.value"
+        :daily-rewards-available="dailyRewardsStore.dailyRewardsRating?.available"
+        :locked-until-time="dailyRewardsStore.dailyRewardsRating?.lockedUntil"
         @getDailyRewards="dailyRewardsStore.GET_DAILY_REWARDS"
       />
     </w-profile-preview>

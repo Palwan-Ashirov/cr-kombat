@@ -97,7 +97,7 @@ export default defineNuxtConfig({
     middleware: './src/app/middleware',
   },
 
-  modules: ['@pinia/nuxt', 'nuxt-svgo'],
+  modules: ['@pinia/nuxt', 'nuxt-svgo', 'dayjs-nuxt'],
   svgo: { autoImportPath: '/public/icons/**/*' },
   // vite: {
   //   esbuild: {

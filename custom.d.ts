@@ -5,3 +5,5 @@ declare module '*.svg' {
 }
 
 declare module '#app'
+
+declare module '#dayjs'

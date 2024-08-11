@@ -16,7 +16,8 @@
       :disabled="!dailyRewardsAvailable"
       @click="$emit('getDailyRewards')"
     >
-      <p>Get Daily reward</p>
+      <p v-if="dailyRewardsAvailable">Get Daily reward</p>
+      <p v-else>{{ localedLockedUntilTime }}</p>
     </button>
   </div>
 </template>
@@ -24,15 +25,42 @@
 <script setup lang="ts">
 import IconInfo from '@/app/assets/icons/actions/icon-info.svg'
 import IconCoin from '@/app/assets/icons/contents/icon-coin.svg'
+import { useDayjs } from '#dayjs'
 
 interface Props {
   earnValue: number
   dailyRewardsAvailable: boolean
+  lockedUntilTime: string
 }
 
 withDefaults(defineProps<Props>(), { dailyRewardsAvailable: true })
 
 defineEmits(['getDailyRewards'])
+
+const localedLockedUntilTime = ref('')
+
+function getDifferenceByUntilTime() {
+  const dayjs = useDayjs()
+
+  const targetDate = dayjs('2024-08-12T00:00:00+04:00')
+
+  const updateDifference = () => {
+    const now = dayjs()
+    const diff = targetDate.diff(now)
+    localedLockedUntilTime.value = dayjs.utc(diff).format('HH:mm:ss')
+  }
+
+  updateDifference()
+  const interval = setInterval(updateDifference, 1000)
+
+  onUnmounted(() => {
+    clearInterval(interval)
+  })
+}
+
+onMounted(() => {
+  getDifferenceByUntilTime()
+})
 </script>
 
 <style src="./e-daily-reward.scss" lang="scss" scoped />
