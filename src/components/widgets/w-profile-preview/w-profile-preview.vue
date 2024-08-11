@@ -20,7 +20,9 @@
           <div class="preview-info__wrapper">
             <div class="preview-info__users">
               <div class="preview-info__users-title">Your position</div>
-              <div class="preview-info__users-position">{{ localedUserPosition }}</div>
+              <div class="preview-info__users-position" :style="`font-size: ${userPositionFontSize}px`">
+                {{ localedUserPosition }}
+              </div>
               <div class="preview-info__users-count">of {{ localedUsersCount }} users</div>
             </div>
             <div class="preview-info__image">
@@ -50,6 +52,17 @@ const props = withDefaults(defineProps<Props>(), { userName: '' })
 const localedBalance = computed(() => useNumberWithSpaces(props.balance))
 const localedUserPosition = computed(() => useNumberWithSpaces(props.userPosition))
 const localedUsersCount = computed(() => useNumberWithSpaces(props.usersCount))
+
+const userPositionFontSize = computed(() => {
+  const userPositionLength = String(props.userPosition).length
+  if (userPositionLength < 6) {
+    return 54
+  } else if (userPositionLength < 8) {
+    return 36
+  } else {
+    return 32
+  }
+})
 </script>
 
 <style src="./w-profile-preview.scss" lang="scss" scoped></style>

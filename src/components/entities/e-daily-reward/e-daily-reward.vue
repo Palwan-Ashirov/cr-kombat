@@ -17,7 +17,7 @@
       @click="$emit('getDailyRewards')"
     >
       <p v-if="dailyRewardsAvailable">Get Daily reward</p>
-      <p v-else>{{ localedLockedUntilTime }}</p>
+      <p v-else>Before opening {{ localedLockedUntilTime }}</p>
     </button>
   </div>
 </template>

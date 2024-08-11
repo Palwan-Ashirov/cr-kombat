@@ -12,7 +12,10 @@
     &:disabled {
       cursor: not-allowed;
       background-color: var(--text2);
-      color: var(--bg);
+      color: var(--white);
+      p {
+        opacity: 0.6;
+      }
     }
   }
   &__info {
