@@ -1,12 +1,11 @@
 .w-bottom-menu {
-  position: fixed;
+  position: sticky;
   padding: 0 16px 20px 16px;
   bottom: 0;
-  left: 50%;
+  left: 0;
   right: 0;
   z-index: 2;
-  max-width: 375px;
-  transform: translate(-50%, 0);
+  max-width: 640px;
   &__nav {
     padding: 6px;
     border: 1px solid var(--stroke);

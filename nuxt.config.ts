@@ -8,12 +8,12 @@ const extendedRoutes = [
   },
   {
     name: 'queue',
-    path: '/',
+    path: '/queue',
     file: '~/src/pages/TheQueue/TheQueue.vue',
   },
   {
     name: 'friends',
-    path: '/',
+    path: '/friends',
     file: '~/src/pages/TheFriends/TheFriends.vue',
   },
 ]
@@ -26,7 +26,7 @@ const alias = {
   '@composables': resolve(__dirname, './src/app/composables'),
   '@helpers': resolve(__dirname, './src/app/helpers'),
   '@stores': resolve(__dirname, './src/app/stores'),
-  '@styles': resolve(__dirname, './src/app/styles'),
+  '@styles': resolve(__dirname, './src/app/assets/styles'),
   '@app-types': resolve(__dirname, './src/app/types'),
   '@services': resolve(__dirname, './src/app/api/services'),
   '@controllers': resolve(__dirname, './src/app/api/controllers'),
