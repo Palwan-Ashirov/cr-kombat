@@ -81,17 +81,17 @@ export default defineNuxtConfig({
   },
 
   hooks: {
-    async 'nitro:config'(nitroConfig) {
-      const routes = await getPostRoutes()
-      nitroConfig?.prerender?.routes?.push(...routes)
-    },
+    // async 'nitro:config'(nitroConfig) {
+    //   const routes = await getPostRoutes()
+    //   nitroConfig?.prerender?.routes?.push(...routes)
+    // },
     'pages:extend'(routes) {
       routes.push(...extendedRoutes)
     },
   },
 
   dir: {
-    // pages: 'src/pages',
+    pages: 'src/pages',
     layouts: './src/layouts',
     plugins: './src/app/plugins',
     middleware: './src/app/middleware',
