@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const TELEGRAM_TOKEN =
-  'query_id=AAEOiBtAAAAAAA6IG0Dhz9cD&user=%7B%22id%22%3A1075546126%2C%22first_name%22%3A%22Palwan%22%2C%22last_name%22%3A%22P.%22%2C%22username%22%3A%22palwanP%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1723154797&hash=aac8c0eda42fdb8420109d9e6f46b820411367e572e148cf10b9a33d1dab5cc0'
+  'query_id=AAEOiBtAAAAAAA6IG0CQVmDH&user=%7B%22id%22%3A1075546126%2C%22first_name%22%3A%22Palwan%22%2C%22last_name%22%3A%22P.%22%2C%22username%22%3A%22palwanP%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1723313305&hash=d0101cea729781fffd244c1d734bb281211c500eec824e8efe9972c34f58129c'
 
 export const api = () => {
   const { $config } = useNuxtApp()
@@ -54,8 +54,8 @@ export const getServerRequest = async (path: string, options?: any) => {
   return await useFetch(() => `${$config.public.BASE_URL}${path}`, {
     ...options,
     headers: {
-      'Access-Control-Allow-Origin': '*',
       'tg-auth': TELEGRAM_TOKEN,
+      Cookies: $config.public.VERCEL_TOKEN,
       ...(options && options.headers),
     },
   })
